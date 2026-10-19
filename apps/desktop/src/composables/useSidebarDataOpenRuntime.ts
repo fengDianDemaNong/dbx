@@ -395,6 +395,7 @@ export function useSidebarDataOpenRuntime() {
         driverProfile: config?.driver_profile,
         serverVersion: connectionStore.getConfig(node.connectionId)?.database_info?.productVersion,
         identifierQuote: connectionStore.connectionIdentifierQuote?.(node.connectionId),
+        connectionId: node.connectionId,
         schema: tableSchema,
         database: node.database,
         tableName: node.label,
