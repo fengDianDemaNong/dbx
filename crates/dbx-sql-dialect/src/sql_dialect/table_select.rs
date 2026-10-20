@@ -1310,10 +1310,7 @@ mod tests {
             limit: Some(100),
             ..Default::default()
         });
-        assert_eq!(
-            sql,
-            "SELECT * FROM `dw`.`ads_adx_dsp_realtime_stc_detail_1h` PARTITION (`p2025101918`) LIMIT 100;"
-        );
+        assert_eq!(sql, "SELECT * FROM `dw`.`ads_adx_dsp_realtime_stc_detail_1h` PARTITION (`p2025101918`) LIMIT 100;");
     }
 
     #[test]
