@@ -376,7 +376,7 @@ pub fn build_table_data_select_sql_with_database(
     // preview on a frequently partitioned table (hourly/daily) trips those
     // rules even with a small LIMIT, so data-tab callers pass the latest
     // partition name and we pin the scan to it when the user gave no WHERE.
-    let partition_clause = if predicate.is_empty()
+    let partition_clause = if effective_predicate.is_empty()
         && matches!(database_type, Some(DatabaseType::Doris) | Some(DatabaseType::StarRocks))
     {
         options
@@ -1149,6 +1149,7 @@ mod tests {
             use_driver_row_offset: false,
             where_input: None,
             inject_default_time_series_where: false,
+            default_partition: None,
             include_row_id: false,
         }
     }
